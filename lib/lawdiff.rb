@@ -1,0 +1,3 @@
+module Lawdiff
+  # Your code goes here...
+end
