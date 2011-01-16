@@ -22,22 +22,16 @@ module Lawdiff
 
 
     def add(doc, elem)
-      where = elem["pos"]
+      pos = elem["pos"].to_sym
       xpath = "//" + elem["at"].split("/").map { |id| "*[@ref='#{id}']" }.join("/")
       node = doc.to_xml.xpath(xpath)[0]
 
-      case where
-        when "after"
-          node.add_next_sibling(elem.children)
-        when "before"
-          node.add_previous_sibling(elem.children)
-        when "append"
-          node.children.after(elem.children)
-        when "prepend"
-          node.children.before(elem.children)
-        else
-          raise "ERROR!"
-      end
+      h = { after:   ->(new){ node.add_next_sibling(new) },
+            before:  ->(new){ node.add_previous_sibling(new) },
+            append:  ->(new){ node.children.after(new) },
+            prepend: ->(new){ node.children.before(new) } }
+
+      h[pos].call(elem.children)
     end
   end
 
