@@ -19,7 +19,7 @@ describe "apply patch" do
 
   it "should apply patch without errors and with expected result" do
     docs = @patch.apply(example: @doc)
-    docs[:example].to_xml.to_s.should == @expected.to_xml.to_s
+    docs[:example].to_xml.to_s.gsub(/\s+/," ").should == @expected.to_xml.to_s.gsub(/\s+/, " ")
   end
 
 end
