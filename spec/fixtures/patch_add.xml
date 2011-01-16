@@ -1,0 +1,44 @@
+<document>
+  <patch document="example">
+    <add at="p1" pos="before">
+      a <one/>b<two/>c
+    </add>
+    <add at="p2" pos="after">
+      d<three/>e<four/>f
+    </add>
+    <add at="p1" pos="append">
+      g<five/>h<six/>i
+    </add>
+    <add at="p2" pos="prepend">
+      j<seven/>k<eight/>l
+    </add>
+
+    <add at="a1" pos="before">
+      <A/><B/>
+    </add>
+    <add at="a2" pos="after">
+      <C/><D/>
+    </add>
+    <add at="a1" pos="append">
+      <E/><F/>
+    </add>
+    <add at="a2" pos="prepend">
+      <G/><H/>
+    </add>
+
+    <add at="b1" pos="before">
+      foo
+    </add>
+    <add at="b2" pos="after">
+      bar
+    </add>
+    <add at="b1" pos="append">
+      baz
+    </add>
+    <add at="b2" pos="prepend">
+      fred
+    </add>
+  </patch>
+</document>
+
+
